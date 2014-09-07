@@ -20,8 +20,10 @@ let g:ConqueTerm_ReadUnfocused = 1
 let g:ConqueTerm_PromptRegex = '^\w\+@[0-9A-Za-z_.-]\+:[0-9A-Za-z_./\~,:-]\+\$'
 
 " NERD tree config
-map <F2> <Esc>:NERDTreeToggle<CR> "Toggle the file browser
-map <A-F1> <Esc>:NERDTreeFind<CR> "Find the current file in the file browser
+"Toggle the file browser
+map <F2> <Esc>:NERDTreeToggle<CR> 
+"Find the current file in the file browser
+map <A-F2> <Esc>:NERDTreeFind<CR> 
 
 " TagList config
 map <F3> <Esc>:TlistToggle<CR>
@@ -58,5 +60,7 @@ if v:version > 702
     set undofile
 endif
 
+"Next / Prev tag match key bindings
 nnoremap <silent> <special> <c-left> :silent tp<CR>
 nnoremap <silent> <special> <c-right> :silent tn<CR>
+nnoremap <c-o> :MRU<CR>
