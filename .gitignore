@@ -1,6 +1,7 @@
 ### vim ###
 .netrwhist
 *~
+.VimballRecord
 
 ### OSX ###
 .DS_Store
