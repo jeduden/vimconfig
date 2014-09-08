@@ -1,4 +1,5 @@
 "backspace will actually show the deleted char
+"
 set backspace=2
 
 " keep a big history
@@ -112,7 +113,7 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 " Default actions for kinds
 call unite#custom#default_action('file', 'tabswitch')
 call unite#custom#default_action('buffer', 'tabswitch')
-
+call unite#custom#default_action('grep', 'right')
 
 " Overpower sorting by buffer type with sort rank
 call unite#custom#profile('mixed-files', 'sorters', 'sorter_rank')
@@ -120,15 +121,17 @@ call unite#custom#profile('tags', 'sorters', 'sorter_rank')
 call unite#custom#profile('buffer', 'sorters', 'sorter_rank')
 call unite#custom#profile('mixed-docs', 'sorters', 'sorter_rank')
 
+" Start unite with <space> 
 nnoremap [unite] <Nop>
 nmap <space> [unite]
 
 nnoremap [unite]<space> :<C-u>Unite -buffer-name=mixed-files -start-insert file_rec/async:! file_mru buffer<cr>
-" Start unite with <space> 
 nnoremap [unite]b :<C-u>Unite -buffer-name=buffer -start-insert buffer<cr>
-nnoremap [unite]j :<C-u>Unite -buffer-name=mixed-docs -start-insert function outline<cr>
-nnoremap [unite]t :<C-u>Unite -buffer-name=tags -start-insert tag tag/file<cr>
+nnoremap [unite]o :<C-u>Unite -buffer-name=mixed-docs -start-insert function outline<cr>
+nnoremap [unite]t :<C-u>Unite -buffer-name=tags -start-insert -auto-preview tag tag/file<cr>
 nnoremap [unite]y :<C-u>Unite -buffer-name=yank history/yank<cr>
+nnoremap [unite]g :<C-u>Unite -buffer-name=grep -default-action=tabsplit -auto-preview grep<cr>
+nnoremap [unite]f :<C-u>Unite -buffer-name=line -start-insert line<cr>
 " Go back to last unite buffer. 
 nnoremap [unite]<backspace> :UniteResume<cr> 
 
@@ -139,19 +142,10 @@ function! s:unite_settings()
   call unite#mappings#define_default_mappings()
   " Play nice with supertab
   let b:SuperTabDisabled=1
-"  imap <silent><buffer><expr> <C-b> unite#do_action('splitswitch')
-"  nmap <silent><buffer><expr> <C-b> unite#do_action('splitswitch')
-"  imap <silent><buffer><expr> <C-v> unite#do_action('vsplitswitch')
-"  nmap <silent><buffer><expr> <C-v> unite#do_action('vsplitswitch')
 
   "Control backslash to get action menu
   imap <silent><buffer> <C-\> <Plug>(unite_choose_action)
   nmap <silent><buffer> <C-\> <Plug>(unite_choose_action)
-"  imap <silent><buffer><expr> <cr> unite#do_action('tabswitch')
-"  nmap <silent><buffer><expr> <cr> unite#do_action('tabswitch')
-  nmap <buffer> Q <plug>(unite_exit)
-  nmap <buffer> <ESC> <plug>(unite_exit)
-  imap <buffer> <ESC> <plug>(unite_exit)
 endfunction
 
 
