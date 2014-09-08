@@ -120,6 +120,7 @@ nnoremap [unite] <Nop>
 nmap <space> [unite]
 
 nnoremap [unite]<space> :<C-u>Unite -buffer-name=mixed-files -start-insert file_rec/async:! file_mru buffer<cr>
+" Start unite with <space> 
 nnoremap [unite]b :<C-u>Unite -buffer-name=buffer -start-insert buffer<cr>
 nnoremap [unite]j :<C-u>Unite -buffer-name=mixed-docs -start-insert function outline<cr>
 nnoremap [unite]t :<C-u>Unite -buffer-name=tags -start-insert tag tag/file<cr>
