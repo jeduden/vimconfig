@@ -105,6 +105,11 @@ call unite#filters#sorter_default#use(['sorter_rank'])
 " enable fuzzy matching 
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 
+" Default actions for kinds
+call unite#custom#default_action('file', 'tabswitch')
+call unite#custom#default_action('buffer', 'tabswitch')
+
+
 " Overpower sorting by buffer type with sort rank
 call unite#custom#profile('mixed-files', 'sorters', 'sorter_rank')
 call unite#custom#profile('tags', 'sorters', 'sorter_rank')
