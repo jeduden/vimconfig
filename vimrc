@@ -124,25 +124,30 @@ nnoremap [unite]b :<C-u>Unite -buffer-name=buffer -start-insert buffer<cr>
 nnoremap [unite]j :<C-u>Unite -buffer-name=mixed-docs -start-insert function outline<cr>
 nnoremap [unite]t :<C-u>Unite -buffer-name=tags -start-insert tag tag/file<cr>
 nnoremap [unite]y :<C-u>Unite -buffer-name=yank history/yank<cr>
+" Go back to last unite buffer. 
+nnoremap [unite]<backspace> :UniteResume<cr> 
 
 " Custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
 function! s:unite_settings()
+  
+  call unite#mappings#define_default_mappings()
   " Play nice with supertab
   let b:SuperTabDisabled=1
-  " Enable navigation with control-j and control-k in insert mode
-  mapclear <buffer>
-  imap <buffer> <C-l> <plug>(unite_select_next_line)
-  nmap <buffer> <C-l> <Plug>(unite_select_next_line)
-  inoremap <silent><buffer><expr> <C-k>   <Plug>(unite_select_previous_line)
-  nnoremap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-  imap <silent><buffer><expr> <C-b> <Plug>(unite_insert_leave);unite#do_action('split')
-  nmap <silent><buffer><expr> <C-b> unite#do_action('split')
-  imap <silent><buffer><expr> <C-v> <Plug>(unite_insert_leave);unite#do_action('vsplit')
-  nmap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
-  imap <silent><buffer><expr> <cr> <Plug>(unite_insert_leave);unite#do_action('tabopen')
-  nmap <silent><buffer><expr> <cr> unite#do_action('tabopen')
+"  imap <silent><buffer><expr> <C-b> unite#do_action('splitswitch')
+"  nmap <silent><buffer><expr> <C-b> unite#do_action('splitswitch')
+"  imap <silent><buffer><expr> <C-v> unite#do_action('vsplitswitch')
+"  nmap <silent><buffer><expr> <C-v> unite#do_action('vsplitswitch')
+
+  "Control backslash to get action menu
+  imap <silent><buffer> <C-\> <Plug>(unite_choose_action)
+  nmap <silent><buffer> <C-\> <Plug>(unite_choose_action)
+"  imap <silent><buffer><expr> <cr> unite#do_action('tabswitch')
+"  nmap <silent><buffer><expr> <cr> unite#do_action('tabswitch')
   nmap <buffer> Q <plug>(unite_exit)
-  " Remap choose action to Ctrl+a from default Tab 
-  nmap <buffer> <c-a> <Plug>(unite_choose_action)
+  nmap <buffer> <ESC> <plug>(unite_exit)
+  imap <buffer> <ESC> <plug>(unite_exit)
 endfunction
+
+
+
