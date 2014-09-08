@@ -1,3 +1,6 @@
+"backspace will actually show the deleted char
+set backspace=2
+
 " keep a big history
 set history=1000
 set incsearch
