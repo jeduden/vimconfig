@@ -89,6 +89,10 @@ endif
 nnoremap <silent> <special> <c-left> :silent tp<CR>
 nnoremap <silent> <special> <c-right> :silent tn<CR>
 
+"Cycle tabs;
+nmap <silent> <tab> :tabn<cr>
+nmap <silent> <s-tab> :tabp<cr>
+
 " Unite
 let g:unite_source_history_yank_enable = 1
 
