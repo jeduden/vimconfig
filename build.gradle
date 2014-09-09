@@ -14,4 +14,8 @@ task compileVimproc(type: Exec) {
     commandLine 'make'
 }
 
+task compile {
+    dependsOn compileVimproc
+}
+
 

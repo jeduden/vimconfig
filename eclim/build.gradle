@@ -1,0 +1,5 @@
+ant.importBuild 'src/build.xml'
+ant.properties["eclipse.home"] = '/Applications/eclipse'
+task compile {
+  dependsOn deploy
+}
