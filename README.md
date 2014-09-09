@@ -4,6 +4,7 @@ My VIM Config
 This repo contains my vim config.
 
 To checkout the repo use:
+
     git submodule sync
     git submodule update --init --recursive
 
