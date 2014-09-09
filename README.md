@@ -12,3 +12,8 @@ I am using this repo directly to configure VIM with the followings symlinks:
 
     ln -s <path-to-repo>/vim ~/.vim
     ln -s <path-to-repo>/vimrc ~/.vimrc
+
+Compile native code of vimproc:
+
+    cd ~/vim/bundle/vimproc
+    Make
