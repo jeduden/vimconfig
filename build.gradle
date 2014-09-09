@@ -1,0 +1,17 @@
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.0'
+}
+
+task compileVimproc(type: Exec) {
+    workingDir 'vim/bundle/vimproc'
+    commandLine 'make'
+}
+
+
