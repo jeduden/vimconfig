@@ -22,9 +22,6 @@
 [submodule "vim/bundle/unite-tag"]
 	path = vim/bundle/unite-tag
 	url = https://github.com/tsukkee/unite-tag
-[submodule "vim/bundle/neocomplete.vim"]
-	path = vim/bundle/neocomplete.vim
-	url = https://github.com/Shougo/neocomplete.vim.git
 [submodule "eclim/src"]
 	path = eclim/src
 	url = git://github.com/ervandew/eclim.git
