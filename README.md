@@ -7,11 +7,11 @@ To compile all plugins:
     
     ./gradlew compile
 
-To link the vim,vimrc into the home dir:
+To link the vim,vimrc into the home dir ( doesn't force )
 
     ./gradlew link
 
-To both at once:
+To do both at once:
 
     ./gradlew install
 
