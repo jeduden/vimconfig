@@ -1,3 +1,5 @@
+import org.gradle.util.GUtil;
+
 repositories {
     mavenCentral()
 }
@@ -9,13 +11,60 @@ task wrapper(type: Wrapper) {
     gradleVersion = '2.0'
 }
 
+ext {
+   gitSubmodulePaths = [ 
+        "eclim":"eclim/src",
+        "mru":"vim/bundle/mru",
+        "neomru":"vim/bundle/neomru",
+        "nerdtree":"vim/bundle/nerdtree",
+        "syntastic":"vim/bundle/syntastic",
+        "unite":"vim/bundle/unite",
+        "vimslim":"vim/bundle/vim-slim",
+        "vimproc":"vim/bundle/vimproc",
+        "ycm":"vim/bundle/ycm"
+   ]
+}
+
+def addSubmoduleRule(String command,List<String> params,Closure col=null) {
+  tasks.addRule("Pattern: ${command}GitSubmodule<Module>") { String taskName -> 
+      if( taskName.startsWith("${command}GitSubmodule") ) {
+        def moduleName = (taskName-"${command}GitSubmodule").toLowerCase()
+        
+        task(taskName,type:Exec) { 
+          ext.moduleName = moduleName
+          commandLine "git","submodule",command
+          commandLine += params
+          commandLine += ["--",project.gitSubmodulePaths[moduleName]]
+          if( col != null ) {
+             configure(col)
+          } 
+        } 
+     }
+  }
+}
+
+def addAllSubmodulesRule(String command) {
+  task("${command}GitSubmodule") {
+     dependsOn = gitSubmodulePaths.collect { k,v -> "${command}GitSubmodule${GUtil.toCamelCase(k)}" }
+  } 
+}
+
+addSubmoduleRule("sync",[])
+addAllSubmodulesRule("sync")
+
+addSubmoduleRule("update",["--init","--recursive"]) { 
+  dependsOn "syncGitSubmodule"+GUtil.toCamelCase(moduleName)
+}
+addAllSubmodulesRule("update")
+
 task compileVimproc(type: Exec) {
+    dependsOn "updateGitSubmoduleVimproc"
     workingDir 'vim/bundle/vimproc'
     commandLine 'make'
 }
 
 task compile {
-    dependsOn compileVimproc
+    dependsOn compileVimproc,"ycm:compile"
 }
 
 

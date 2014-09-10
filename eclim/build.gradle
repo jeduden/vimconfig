@@ -11,6 +11,7 @@ ant.properties["build.vimfiles"]="{$project.buildDir}/vim"
 ant.properties["build.installer"]="{${project.buildDir}/installer"
 
 task compile(type:Exec) {
+  dependsOn ":updateGitSubmoduleEclim"
   workingDir 'src'
   commandLine 'ant',"-Declipse.home="+ant.properties['eclipse.home'],"-Dvim.files="+project.rootDir+"/vim/bundle/eclim"
 }
