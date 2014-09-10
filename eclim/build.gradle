@@ -12,5 +12,5 @@ ant.properties["build.installer"]="{${project.buildDir}/installer"
 
 task compile(type:Exec) {
   workingDir 'src'
-  commandLine 'ant',"-Declipse.home="+ant.properties['eclipse.home']
+  commandLine 'ant',"-Declipse.home="+ant.properties['eclipse.home'],"-Dvim.files="+project.rootDir+"/vim/bundle/eclim"
 }
