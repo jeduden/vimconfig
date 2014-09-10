@@ -3,18 +3,17 @@ My VIM Config
 
 This repo contains my vim config.
 
-To checkout the repo use:
-
-    git submodule sync
-    git submodule update --init --recursive
-
-I am using this repo directly to configure VIM with the followings symlinks:
-
-    ln -s <path-to-repo>/vim ~/.vim
-    ln -s <path-to-repo>/vimrc ~/.vimrc
-
-To compile all plugins
+To compile all plugins: 
     
     ./gradlew compile
+
+To link the vim,vimrc into the home dir:
+
+    ./gradlew link
+
+To both at once:
+
+    ./gradlew install
+
 
 
