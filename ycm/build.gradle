@@ -1,0 +1,5 @@
+task compile(type:Exec) {
+  workingDir '../vim/bundle/ycm'
+  executable 'bash'
+  args '-c',"set -ex;./install.sh --clang-completer --omnisharp-completer"
+}
