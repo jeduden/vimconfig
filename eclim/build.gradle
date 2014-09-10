@@ -1,5 +1,16 @@
+// not using this this setup because ant library can't seem to deal correctly with relative paths.
 ant.importBuild 'src/build.xml'
+ant.properties.buildDir = project.buildDir
 ant.properties["eclipse.home"] = '/Applications/eclipse'
-task compile {
-  dependsOn deploy
+
+ant.properties["build.classes"]="${project.buildDir}/classes" 
+ant.properties["build.features"]="${project.buildDir}/eclipse/features"
+ant.properties["build.plugins"]="${project.buildDir}/eclipse/plugins"
+ant.properties["build.update-site"]="${project.buildDir}/eclipse/update-site"
+ant.properties["build.vimfiles"]="{$project.buildDir}/vim"
+ant.properties["build.installer"]="{${project.buildDir}/installer"
+
+task compile(type:Exec) {
+  workingDir 'src'
+  commandLine 'ant',"-Declipse.home="+ant.properties['eclipse.home']
 }
