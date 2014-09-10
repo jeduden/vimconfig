@@ -13,7 +13,7 @@ I am using this repo directly to configure VIM with the followings symlinks:
     ln -s <path-to-repo>/vim ~/.vim
     ln -s <path-to-repo>/vimrc ~/.vimrc
 
-To compile any plugins
+To compile all plugins
     
     ./gradlew compile
 
