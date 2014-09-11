@@ -19,6 +19,7 @@ ext {
         "nerdtree":"vim/bundle/nerdtree",
         "syntastic":"vim/bundle/syntastic",
         "unite":"vim/bundle/unite",
+        "unite-tag":"vim/bundle/unite-tag",
         "vimslim":"vim/bundle/vim-slim",
         "vimproc":"vim/bundle/vimproc",
         "ycm":"vim/bundle/ycm"
@@ -75,12 +76,12 @@ def linkVariants = [
 linkVariants.each { name,param -> 
   task("link${name}Vimrc",type:Exec) {
     executable "bash"
-    args "-c","set -ex;ln -s${param} ${rootDir.absolutePath}/vimrc ~/.vimrc"   
+    args "-c","set -ex;ln -sh${param} ${rootDir.absolutePath}/vimrc ~/.vimrc"   
   }
   
   task("link${name}Vim",type:Exec) {
     executable "bash"
-    args "-c","set -ex;ln -s${param} ${rootDir.absolutePath}/vim ~/.vim"   
+    args "-c","set -ex;ln -sh${param} ${rootDir.absolutePath}/vim ~/.vim"   
   }
   task("link${name}") {
     dependsOn "link${name}Vimrc","link${name}Vim"
