@@ -12,7 +12,7 @@ To link the vim,vimrc into the home dir ( doesn't force )
     ./gradlew link #doesn't force
     ./gradlew linkForce #forces links
 
-To do both at once:
+To install correct version of vim and compile & link the config once:
 
     ./gradlew install #no force
     ./gradlew installForce #with forcing links
