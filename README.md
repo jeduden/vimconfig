@@ -9,11 +9,13 @@ To compile all plugins:
 
 To link the vim,vimrc into the home dir ( doesn't force )
 
-    ./gradlew link
+    ./gradlew link #doesn't force
+    ./gradlew linkForce #forces links
 
 To do both at once:
 
-    ./gradlew install
+    ./gradlew install #no force
+    ./gradlew installForce #with forcing links
 
 
 
