@@ -69,6 +69,11 @@ task compile {
     dependsOn compileVimproc,"ycm:compile"
 }
 
+task installVim(type:Exec) {
+    executable "bash"
+    args "-c","set -ex;brew install vim  --override-system-vim --with-lua"
+}
+
 def linkVariants = [
    "Force":"f",
    "":""
@@ -88,7 +93,7 @@ linkVariants.each { name,param ->
     dependsOn "link${name}Vimrc","link${name}Vim"
   }
   task("install${name}") {
-    dependsOn compile,"link${name}"
+    dependsOn compile,"installVim","link${name}"
   }
 }
 
