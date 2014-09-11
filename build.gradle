@@ -65,6 +65,7 @@ task compileVimproc(type: Exec) {
 }
 
 task compile {
+    dependsOn updateGitSubmodule
     dependsOn compileVimproc,"ycm:compile"
 }
 
