@@ -19,7 +19,7 @@ ext {
         "nerdtree":"vim/bundle/nerdtree",
         "syntastic":"vim/bundle/syntastic",
         "unite":"vim/bundle/unite",
-        "unite-tag":"vim/bundle/unite-tag",
+        "unitetag":"vim/bundle/unite-tag",
         "vimslim":"vim/bundle/vim-slim",
         "vimproc":"vim/bundle/vimproc",
         "ycm":"vim/bundle/ycm"
