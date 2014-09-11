@@ -6,7 +6,7 @@
 	url = https://github.com/scrooloose/syntastic.git
 [submodule "vim/bundle/vim-slim"]
 	path = vim/bundle/vim-slim
-	url = git://github.com/slim-template/vim-slim.git
+	url = https://github.com/slim-template/vim-slim.git
 [submodule "vim/bundle/mru"]
 	path = vim/bundle/mru
 	url = https://github.com/yegappan/mru.git
@@ -24,7 +24,7 @@
 	url = https://github.com/tsukkee/unite-tag
 [submodule "eclim/src"]
 	path = eclim/src
-	url = git://github.com/ervandew/eclim.git
+	url = https://github.com/ervandew/eclim.git
 [submodule "vim/bundle/ycm"]
 	path = vim/bundle/ycm
 	url = https://github.com/Valloric/YouCompleteMe.git
