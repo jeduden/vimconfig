@@ -67,20 +67,26 @@ task compile {
     dependsOn compileVimproc,"ycm:compile"
 }
 
-task linkVimrc(type:Exec) {
-  executable "bash"
-  args "-c","set -ex;ln -s ${rootDir.absolutePath}/vimrc ~/.vimrc"   
+def linkVariants = [
+   "Force":"f",
+   "":""
+]
+
+linkVariants.each { name,param -> 
+  task("link${name}Vimrc",type:Exec) {
+    executable "bash"
+    args "-c","set -ex;ln -s${param} ${rootDir.absolutePath}/vimrc ~/.vimrc"   
+  }
+  
+  task("link${name}Vim",type:Exec) {
+    executable "bash"
+    args "-c","set -ex;ln -s${param} ${rootDir.absolutePath}/vim ~/.vim"   
+  }
+  task("link${name}") {
+    dependsOn "link${name}Vimrc","link${name}Vim"
+  }
+  task("install${name}") {
+    dependsOn compile,"link${name}"
+  }
 }
 
-task linkVim(type:Exec) {
-  executable "bash"
-  args "-c","set -ex;ln -s ${rootDir.absolutePath}/vim ~/.vim"   
-}
-
-task link {
-  dependsOn linkVimrc,linkVim
-}
-
-task install {
-  dependsOn compile,link
-}
