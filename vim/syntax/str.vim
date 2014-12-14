@@ -18,13 +18,13 @@ endif
 let s:cpo_save = &cpo
 set cpo&vim
 
-"syn match   strKey          /^ *[^ *-:][^:]*\ze:/  
+syn match   strKey          /^ *[^ *-:][^:]*\ze:/  
 syn match   strIndentError /^\(  \)* [^ ]/ display
 syn match   strArrayItem    "- "
 syn match   strArrayPair    "\* "
 syn match   strArray        "--"
 syn match   strString       "''"
-syn region strKey start=/^ *[^ *-:]/ skip=/\\:/ end=/\ze:/
+"syn region strKey start=/^ *[^ *-:]/ skip=/\\:/ end=/\ze:/
 syn match   strKeySeparator   "[^:]\zs:"
 syn match   strDictionaryStart   "\(^ *\|:\)\zs:"
 
