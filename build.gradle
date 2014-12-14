@@ -71,7 +71,7 @@ task compile {
 
 task installVim(type:Exec) {
     executable "bash"
-    args "-c","set -ex;brew install vim  --override-system-vim --with-lua"
+    args "-c","set -ex;brew install vim  --override-system-vim --with-lua -HEAD"
 }
 
 def linkVariants = [
