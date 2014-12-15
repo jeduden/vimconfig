@@ -28,3 +28,6 @@
 [submodule "vim/bundle/ycm"]
 	path = vim/bundle/ycm
 	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "vim/bundle/vim-indent-guides"]
+	path = vim/bundle/vim-indent-guides
+	url = https://github.com/nathanaelkane/vim-indent-guides.git

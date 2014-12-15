@@ -38,18 +38,20 @@ inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
 " syntax highligting
 syntax on
-
+colorscheme default
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
 set noeb vb t_vb= 
+set background=dark
+
 " indentation and plugins
 
 filetype indent plugin on
 
 " Groovy/gradle setting
 
-au filetype groovy setl et ts=2 sts=2
-au filetype javascript setl et ts=2 sts=2
+au filetype groovy setl et ts=2 sts=2 shiftwidth=2
+au filetype javascript setl et ts=2 sts=2 shiftwidth=2
 au BufNewFile,BufRead *.gradle setf groovy
 
 let g:ConqueTerm_ReadUnfocused = 1
