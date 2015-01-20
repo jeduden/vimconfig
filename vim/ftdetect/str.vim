@@ -1,3 +1,3 @@
 " Structured Strings 
 autocmd BufNewFile,BufReadPost *.str set filetype=str
-au filetype str setl et ts=2 sts=2 shiftwidth=2
+au filetype str setl ts=1 sts=1 shiftwidth=1
