@@ -41,6 +41,7 @@ syntax on
 colorscheme default
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
+let g:syntastic_javascript_checkers = ['jshint']
 set noeb vb t_vb= 
 set background=dark
 
@@ -110,6 +111,9 @@ let g:unite_source_history_yank_enable = 1
 "call unite#custom#source(
         \ 'file_rec/async,file_rec', 'converters',
         \ ['converter_file_directory'])
+
+call unite#custom#source('file_rec/async', 'matchers',
+  \ ['matcher_project_ignore_files', 'matcher_default'])
 
 " sort by match length
 call unite#filters#sorter_default#use(['sorter_rank'])
