@@ -41,7 +41,7 @@ syntax on
 colorscheme default
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint']
 set noeb vb t_vb= 
 set background=dark
 
