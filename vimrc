@@ -53,6 +53,7 @@ filetype indent plugin on
 
 au filetype groovy setl et ts=2 sts=2 shiftwidth=2
 au filetype javascript setl et ts=2 sts=2 shiftwidth=2
+au filetype cpp setl et ts=4 sts=4 shiftwidth=4
 au BufNewFile,BufRead *.gradle setf groovy
 
 let g:ConqueTerm_ReadUnfocused = 1
