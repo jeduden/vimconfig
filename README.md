@@ -1,7 +1,7 @@
 My VIM Config
 =============
 
-This repo contains my vim config.
+This repo contains my vim config !
 
 To compile all plugins: 
     
