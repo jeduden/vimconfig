@@ -39,6 +39,7 @@ inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 " syntax highligting
 syntax on
 colorscheme default
+let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
 let g:syntastic_javascript_checkers = ['eslint']
@@ -53,8 +54,18 @@ filetype indent plugin on
 
 au filetype groovy setl et ts=2 sts=2 shiftwidth=2
 au filetype javascript setl et ts=2 sts=2 shiftwidth=2
+au filetype gherkin setl et ts=2 sts=2 shiftwidth=2
+au filetype cucumber setl et ts=2 sts=2 shiftwidth=2
 au filetype cpp setl et ts=4 sts=4 shiftwidth=4
 au BufNewFile,BufRead *.gradle setf groovy
+au BufNewFile,BufRead *.vue setf javascript
+au BufNewFile,BufRead *.mjs setf javascript
+
+" python 
+au filetype python setl et ts=4 sts=4 shiftwidth=4
+
+" lua
+au filetype lua setl et ts=4 sts=4 shiftwidth=4
 
 let g:ConqueTerm_ReadUnfocused = 1
 let g:ConqueTerm_PromptRegex = '^\w\+@[0-9A-Za-z_.-]\+:[0-9A-Za-z_./\~,:-]\+\$'
