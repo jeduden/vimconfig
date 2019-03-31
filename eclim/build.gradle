@@ -1,7 +1,0 @@
-ant.properties["eclipse.home"] = '/Applications/eclipse'
-
-task compile(type:Exec) {
-  dependsOn ":updateGitSubmoduleEclim"
-  workingDir 'src'
-  commandLine 'ant',"-Declipse.home="+ant.properties['eclipse.home'],"-Dvim.files="+project.rootDir+"/vim/bundle/eclim"
-}
