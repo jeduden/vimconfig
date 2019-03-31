@@ -10,18 +10,12 @@
 [submodule "vim/bundle/mru"]
 	path = vim/bundle/mru
 	url = https://github.com/yegappan/mru.git
-[submodule "vim/bundle/unite"]
-	path = vim/bundle/unite
-	url = https://github.com/Shougo/unite.vim
 [submodule "vim/bundle/neomru"]
 	path = vim/bundle/neomru
 	url = https://github.com/Shougo/neomru.vim
 [submodule "vim/bundle/vimproc"]
 	path = vim/bundle/vimproc
 	url = https://github.com/Shougo/vimproc.vim.git
-[submodule "vim/bundle/unite-tag"]
-	path = vim/bundle/unite-tag
-	url = https://github.com/tsukkee/unite-tag
 [submodule "eclim/src"]
 	path = eclim/src
 	url = https://github.com/ervandew/eclim.git
