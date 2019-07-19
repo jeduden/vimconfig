@@ -105,6 +105,10 @@ let Tlist_Show_One_File = 1
 let Tlist_Enable_Fold_Column = 0
 let Tlist_Exit_OnlyWindow = 1
 
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\}
+
 
 "Next / Prev tag match key bindings
 nnoremap <silent> <special> <c-left> :silent tp<CR>
