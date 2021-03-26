@@ -5,6 +5,12 @@
 
 execute pathogen#infect()
 
+" Plugins will be downloaded under the specified directory.
+call plug#begin(stdpath('data') . '/plugged')
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
+" List ends here. Plugins become visible to Vim after this call.
+call plug#end()
+
 " ======================================================
 " = EDITTING 
 " ======================================================
@@ -57,6 +63,8 @@ au filetype groovy setl et ts=2 sts=2 shiftwidth=2
 au filetype javascript setl et ts=2 sts=2 shiftwidth=2
 au filetype gherkin setl et ts=2 sts=2 shiftwidth=2
 au filetype cucumber setl et ts=2 sts=2 shiftwidth=2
+au filetype lua setl et ts=2 sts=2 shiftwidth=2
+au filetype markdown setl et ts=4 sts=4 shiftwidth=4
 au filetype cpp setl et ts=4 sts=4 shiftwidth=4
 au BufNewFile,BufRead *.gradle setf groovy
 au BufNewFile,BufRead *.vue setf javascript
@@ -117,3 +125,30 @@ nnoremap <silent> <special> <c-right> :silent tn<CR>
 "Cycle tabs;
 nmap <silent> <tab> :tabn<cr>
 nmap <silent> <s-tab> :tabp<cr>
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ignore_install = {}, -- List of parsers to ignore installing
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { },  -- list of language that will be disabled
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn",
+      node_incremental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
+    },
+  },
+  indent = {
+    enable = true
+  },
+}
+EOF
+
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+set nofoldenable
